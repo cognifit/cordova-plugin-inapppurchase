@@ -50,6 +50,7 @@ inAppPurchase.getProducts = (productIds) => {
             price       : val.price,
             currency    : val.currency,
             priceAsDecimal : val.priceAsDecimal,
+            originalJSON: val.originalJSON
           };
         });
         resolve(arr);
