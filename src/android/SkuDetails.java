@@ -56,6 +56,7 @@ public class SkuDetails {
     public Double getPriceAsDecimal() { return mPriceAsDecimal; }
     public String getTitle() { return mTitle; }
     public String getDescription() { return mDescription; }
+    public String getOriginalJson() { return mJson; }
 
     @Override
     public String toString() {
