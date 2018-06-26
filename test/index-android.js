@@ -88,8 +88,8 @@ describe('Android purchases', () => {
     it('should return an array of objects', async (done) => {
       try {
         const products = [
-          { productId: 'com.test.prod1', title: 'prod1 title', description: 'prod1 description', price: '$0.99', currency: 'USD', priceAsDecimal: 0.99 },
-          { productId: 'com.test.prod2', title: 'prod2 title', description: 'prod2 description', price: '$1.99', currency: 'USD', priceAsDecimal: 1.99 }
+          { productId: 'com.test.prod1', title: 'prod1 title', description: 'prod1 description', price: '$0.99', currency: 'USD', priceAsDecimal: 0.99, originalJSON: undefined },
+          { productId: 'com.test.prod2', title: 'prod2 title', description: 'prod2 description', price: '$1.99', currency: 'USD', priceAsDecimal: 1.99, originalJSON: undefined }
         ];
         const productIds = products.map(i => i.productId );
         GLOBAL.window.cordova.exec = (success, err, pluginName, name) => {
@@ -100,6 +100,7 @@ describe('Android purchases', () => {
           }
         };
         const resProducts = await inAppPurchase.getProducts(productIds);
+
         assert.deepEqual(resProducts, products);
         done();
       } catch (err) {

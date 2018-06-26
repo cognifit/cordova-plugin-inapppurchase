@@ -1,3 +1,7 @@
+# COGNIFIT's hacks
+
+Currently manifest.json have some differences from the actual plugin. See Android's requirements
+
 # cordova-plugin-inapppurchase 📱💰
 
 [![Build Status](https://travis-ci.org/AlexDisler/cordova-plugin-inapppurchase.svg?branch=master)](https://travis-ci.org/AlexDisler/cordova-plugin-inapppurchase)
@@ -28,10 +32,19 @@ No configuration is necessary.
 
 ### Android
 
-You must create a ```manifest.json``` in your project's ```www``` folder with your Android Billing Key:
+> In CogniFit we need to target multiple apps in the same project, that's why we made this change
 
-    { "play_store_key": "<Base64-encoded public key from the Google Play Store>" }
-
+You must create a `manifest.json` in your project's `www` folder with your Android Billing Key:
+```
+{
+  APP_ID_1: {
+    "play_store_key": "<Base64-encoded public key from the Google Play Store for APP_1>"
+  },
+  APP_ID_2: {
+    "play_store_key": "<Base64-encoded public key from the Google Play Store for APP_2>"
+  }
+}
+```
 You can get this key from the Google Play Store (under "Services & APIs") after uploading your app.
 
 ## Setting up and testing purchases
