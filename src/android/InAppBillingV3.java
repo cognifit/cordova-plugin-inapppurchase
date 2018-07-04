@@ -86,7 +86,9 @@ public class InAppBillingV3 extends CordovaPlugin {
     JSONObject manifestObject = getManifestContents();
     if (manifestObject != null) {
       String packageName = context.getPackageName();
-      return manifestObject.optString(packageName + "." + "play_store_key");
+      JSONObject innerJSON = manifestObject.optJSONObject(packageName);
+      String id = innerJSON.optString("play_store_key");
+      return id;
     }
     return null;
   }
